@@ -42,26 +42,54 @@ button{
 </div>
 
 <div class="card">
-    <button onclick="dailyReward()">Daily Reward</button>
-    <br>
-    <button onclick="logout()">Logout</button>
+ <button onclick="dailyReward()">Daily Reward</button>
+<br>
+
+<button onclick="spinWheel()">Spin Wheel</button>
+<br>
+
+<button onclick="logout()">Logout</button>   
+
+    
 </div>
 
 <script>
-
 let coins = 1000;
 
-function dailyReward(){
+function dailyReward() {
     coins += 100;
+    document.getElementById("coins").innerText =
+    coins + " Coins";
+
+    alert("You received 100 Coins!");                   function spinWheel() {
+    
+}
+
+
+    
+
+
+
+
+
+
+function spinWheel() {
+    let reward = Math.floor(Math.random() * 500) + 1;
+
+    coins += reward;
+
     document.getElementById("coins").innerHTML =
     coins + " Coins";
 
-    alert("You received 100 Coins!");
+    alert("You won " + reward + " Coins!");
+}
+    
 }
 
-function logout(){
-    window.location.href = "Login.html";
-}
+
+
+
+
 
 </script>
 
