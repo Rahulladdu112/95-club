@@ -1,30 +1,213 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>95 CLUB</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#f2f2f7;
+}
+
+.header{
+background:linear-gradient(to right,#ff6a6a,#ff9a9a);
+padding:25px;
+color:white;
+}
+
+.logo{
+text-align:center;
+font-size:38px;
+font-weight:bold;
+}
+
+.info{
+margin-top:20px;
+font-size:18px;
+}
+
+.lang{
+position:absolute;
+top:25px;
+right:20px;
+font-size:24px;
+}
+
+.tabs{
+display:flex;
+margin-top:25px;
+background:white;
+}
+
+.tab{
+width:50%;
+text-align:center;
+padding:20px;
+font-size:24px;
+font-weight:bold;
+}
+
+.active{
+color:#ff6a6a;
+border-bottom:4px solid #ff6a6a;
+}
+
+.form{
+padding:20px;
+}
+
+.label{
+font-size:28px;
+margin-bottom:10px;
+}
+
+.phoneRow{
+display:flex;
+gap:10px;
+}
+
+.country{
+width:100px;
+padding:18px;
+border:none;
+border-radius:15px;
+background:white;
+font-size:22px;
+}
+
+.input{
+flex:1;
+padding:18px;
+border:none;
+border-radius:15px;
+background:white;
+font-size:22px;
+}
+
+.password{
+width:100%;
+padding:18px;
+border:none;
+border-radius:15px;
+background:white;
+font-size:22px;
+box-sizing:border-box;
+}
+
+.remember{
+margin-top:20px;
+font-size:20px;
+color:gray;
+}
+
+.loginBtn{
+width:100%;
+margin-top:30px;
+padding:18px;
+border:none;
+border-radius:35px;
+font-size:30px;
+font-weight:bold;
+background:#d5d5e2;
+color:#666;
+}
+
+.registerBtn{
+width:100%;
+margin-top:20px;
+padding:18px;
+border:2px solid #ff6a6a;
+border-radius:35px;
+font-size:30px;
+font-weight:bold;
+background:white;
+color:#ff6a6a;
+}
+
+.bottom{
+display:flex;
+justify-content:space-around;
+margin-top:40px;
+font-size:22px;
+text-align:center;
+}
+</style>
 </head>
+
 <body>
-<h2>Login</h2>
 
-<input type="text" id="username" placeholder="Username"><br><br>
-<input type="password" id="password" placeholder="Password"><br><br>
+<div class="header">
+<div class="logo">95 CLUB</div>
 
-<button onclick="login()">Login</button>
+<div class="lang">🇺🇸 EN</div>
+
+<div class="info">
+Please log in with your phone number or email<br>
+If you forget your password, contact customer service
+</div>
+</div>
+
+<div class="tabs">
+<div class="tab active">📱 Phone Number</div>
+<div class="tab">📧 Email Login</div>
+</div>
+
+<div class="form">
+
+<div class="label">📱 Phone Number</div>
+
+<div class="phoneRow">
+<select class="country">
+<option>+91</option>
+</select>
+
+<input class="input" type="text" placeholder="Please enter phone number">
+</div>
+
+<br>
+
+<div class="label">🔒 Password</div>
+
+<input class="password" type="password" placeholder="Password">
+
+<div class="remember">
+<input type="checkbox"> Remember password
+</div>
+
+<button class="loginBtn" onclick="login()">
+Log In
+</button>
+
+<button class="registerBtn" onclick="registerPage()">
+Register
+</button>
+
+<div class="bottom">
+<div>
+🔒<br>
+Forgot Password
+</div>
+
+<div>
+💬<br>
+Customer Service
+</div>
+</div>
+
+</div>
 
 <script>
-function login() {
-  const username = document.getElementById("username").value;
-  const password = document.getElementById("password").value;
+function login(){
+alert("Login Successful");
+window.location.href="index.html";
+}
 
-  const savedPassword = localStorage.getItem(username);
-
-  if(savedPassword === password) {
-    alert("Login Successful!");
-    window.location.href = "Dashboard.html";
-  } else {
-    alert("Invalid Username or Password");
-  }
+function registerPage(){
+window.location.href="Registration.html";
 }
 </script>
+
 </body>
 </html>
