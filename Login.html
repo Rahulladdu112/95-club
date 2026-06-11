@@ -2,212 +2,175 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>95 CLUB</title>
-
+<title>95 CLUB Login</title>
 <style>
-body{
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
 font-family:Arial,sans-serif;
-background:#f2f2f7;
 }
-
+body{
+background:#f5f5f5;
+}
 .header{
-background:linear-gradient(to right,#ff6a6a,#ff9a9a);
-padding:25px;
+background:linear-gradient(90deg,#ff6d6d,#ff9b9b);
+padding:30px 20px;
 color:white;
 }
-
 .logo{
 text-align:center;
 font-size:38px;
 font-weight:bold;
+margin-bottom:15px;
 }
-
 .info{
-margin-top:20px;
-font-size:18px;
+font-size:16px;
+line-height:24px;
 }
-
-.lang{
-position:absolute;
-top:25px;
-right:20px;
-font-size:24px;
-}
-
 .tabs{
 display:flex;
-margin-top:25px;
 background:white;
 }
-
 .tab{
 width:50%;
 text-align:center;
 padding:20px;
-font-size:24px;
+font-size:22px;
 font-weight:bold;
+color:#888;
 }
-
 .active{
-color:#ff6a6a;
-border-bottom:4px solid #ff6a6a;
+color:#ff6d6d;
+border-bottom:4px solid #ff6d6d;
 }
-
 .form{
 padding:20px;
 }
-
 .label{
-font-size:28px;
+font-size:24px;
+margin-top:15px;
 margin-bottom:10px;
 }
-
 .phoneRow{
 display:flex;
 gap:10px;
 }
-
 .country{
 width:100px;
-padding:18px;
+padding:16px;
 border:none;
 border-radius:15px;
 background:white;
-font-size:22px;
+font-size:20px;
 }
-
 .input{
 flex:1;
-padding:18px;
+padding:16px;
 border:none;
 border-radius:15px;
 background:white;
-font-size:22px;
+font-size:20px;
 }
-
 .password{
 width:100%;
-padding:18px;
+padding:16px;
 border:none;
 border-radius:15px;
 background:white;
-font-size:22px;
-box-sizing:border-box;
+font-size:20px;
 }
-
 .remember{
 margin-top:20px;
-font-size:20px;
-color:gray;
+font-size:18px;
+color:#666;
 }
-
 .loginBtn{
 width:100%;
-margin-top:30px;
 padding:18px;
 border:none;
-border-radius:35px;
-font-size:30px;
+border-radius:40px;
+margin-top:25px;
+font-size:28px;
 font-weight:bold;
 background:#d5d5e2;
 color:#666;
 }
-
 .registerBtn{
 width:100%;
-margin-top:20px;
 padding:18px;
-border:2px solid #ff6a6a;
-border-radius:35px;
-font-size:30px;
+border-radius:40px;
+margin-top:15px;
+font-size:28px;
 font-weight:bold;
 background:white;
-color:#ff6a6a;
+border:2px solid #ff6d6d;
+color:#ff6d6d;
 }
-
 .bottom{
 display:flex;
 justify-content:space-around;
 margin-top:40px;
-font-size:22px;
 text-align:center;
+font-size:18px;
+}
+.icon{
+font-size:40px;
+margin-bottom:10px;
 }
 </style>
 </head>
-
 <body>
-
 <div class="header">
-<div class="logo">95 CLUB</div>
-
-<div class="lang">🇺🇸 EN</div>
-
+<div class="logo">
+95 CLUB
+</div>
 <div class="info">
-Please log in with your phone number or email<br>
-If you forget your password, contact customer service
+Please log in with your phone number or email.<br>
+If you forget your password, contact customer service.
 </div>
 </div>
-
 <div class="tabs">
-<div class="tab active">📱 Phone Number</div>
-<div class="tab">📧 Email Login</div>
+<div class="tab active">📱 Phone</div>
+<div class="tab">📧 Email</div>
 </div>
-
 <div class="form">
-
-<div class="label">📱 Phone Number</div>
-
+<div class="label">Phone Number</div>
 <div class="phoneRow">
 <select class="country">
 <option>+91</option>
 </select>
-
 <input class="input" type="text" placeholder="Please enter phone number">
 </div>
-
-<br>
-
-<div class="label">🔒 Password</div>
-
+<div class="label">Password</div>
 <input class="password" type="password" placeholder="Password">
-
 <div class="remember">
 <input type="checkbox"> Remember password
 </div>
-
 <button class="loginBtn" onclick="login()">
 Log In
 </button>
-
 <button class="registerBtn" onclick="registerPage()">
 Register
 </button>
-
 <div class="bottom">
 <div>
-🔒<br>
+<div class="icon">🔒</div>
 Forgot Password
 </div>
-
 <div>
-💬<br>
+<div class="icon">💬</div>
 Customer Service
 </div>
 </div>
-
 </div>
-
 <script>
 function login(){
-alert("Login Successful");
 window.location.href="Dashboard.html";
 }
-
 function registerPage(){
 window.location.href="Registration.html";
 }
 </script>
-
 </body>
 </html>
