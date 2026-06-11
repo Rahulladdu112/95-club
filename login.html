@@ -1,20 +1,138 @@
 <!DOCTYPE html>
 <html>
+<head>
+<title>95 CLUB</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#f3f3f8;
+}
+
+.header{
+background:linear-gradient(90deg,#ff6a6a,#ff9a9a);
+padding:30px;
+text-align:center;
+color:white;
+}
+
+.header h1{
+margin:0;
+font-size:36px;
+}
+
+.header p{
+margin-top:10px;
+}
+
+.container{
+padding:20px;
+}
+
+.tabs{
+display:flex;
+justify-content:space-around;
+margin-bottom:20px;
+font-size:24px;
+font-weight:bold;
+color:#ff6a6a;
+}
+
+.input-box{
+width:100%;
+padding:15px;
+margin-top:15px;
+border:none;
+border-radius:15px;
+font-size:18px;
+background:white;
+box-sizing:border-box;
+}
+
+.login-btn{
+width:100%;
+padding:15px;
+margin-top:20px;
+border:none;
+border-radius:30px;
+font-size:22px;
+background:#d2d2df;
+color:#555;
+}
+
+.register-btn{
+width:100%;
+padding:15px;
+margin-top:15px;
+border:2px solid #ff6a6a;
+border-radius:30px;
+font-size:22px;
+background:white;
+color:#ff6a6a;
+}
+
+.bottom{
+display:flex;
+justify-content:space-around;
+margin-top:40px;
+font-size:18px;
+}
+</style>
+
+</head>
+
 <body>
 
-<h2>Login</h2>
+<div class="header">
+<h1>95 CLUB</h1>
+<p>Please log in with your phone number or email</p>
+</div>
 
-<input type="text" id="username" placeholder="Username"><br><br>
+<div class="container">
 
-<input type="password" id="password" placeholder="Password"><br><br>
+<div class="tabs">
+<div>📱 Phone Number</div>
+<div>📧 Email Login</div>
+</div>
 
-<button onclick="login()">Login</button>
+<input class="input-box" type="text" placeholder="+91 Phone Number">
+
+<input class="input-box" type="password" placeholder="Password">
+
+<br><br>
+
+<label>
+<input type="checkbox">
+Remember Password
+</label>
+
+<button class="login-btn" onclick="login()">
+Log In
+</button>
+
+<button class="register-btn" onclick="registerPage()">
+Register
+</button>
+
+<div class="bottom">
+<div>🔒 Forgot Password</div>
+<div>💬 Customer Service</div>
+</div>
+
+</div>
 
 <script>
-function login() {
-  alert("Login Successful");
-  window.location.href = "index.html";
+
+function login(){
+alert("Login Successful");
+window.location.href="index.html";
 }
+
+function registerPage(){
+window.location.href="Registration.html";
+}
+
 </script>
 
 </body>
