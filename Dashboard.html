@@ -1,125 +1,224 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>95 CLUB Dashboard</title>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>95 CLUB</title>
 <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
 body{
-    background:#111;
-    color:white;
-    font-family:Arial;
-    text-align:center;
-    padding:20px;
+background:#f5f5f5;
 }
-
-.card{
-    background:#222;
-    padding:20px;
-    margin:15px;
-    border-radius:10px;
+.header{
+background:linear-gradient(90deg,#ff6b6b,#ff8e8e);
+padding:15px;
+text-align:center;
+color:white;
+font-size:30px;
+font-weight:bold;
 }
-
-button{
-    width:200px;
-    padding:12px;
-    margin:10px;
-    border:none;
-    border-radius:10px;
-    background:gold;
-    font-size:18px;
+.wallet{
+background:white;
+margin:15px;
+padding:20px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+.balance{
+font-size:35px;
+font-weight:bold;
+}
+.actions{
+display:flex;
+gap:10px;
+margin-top:15px;
+}
+.actions button{
+flex:1;
+padding:12px;
+border:none;
+border-radius:25px;
+color:white;
+font-size:18px;
+}
+.withdraw{
+background:#ff5f5f;
+}
+.deposit{
+background:#1cc95a;
+}
+.tabs{
+display:flex;
+margin:15px;
+background:white;
+border-radius:15px;
+overflow:hidden;
+}
+.tabs button{
+flex:1;
+padding:15px;
+border:none;
+background:white;
+}
+.active{
+background:#ff6b6b;
+color:white;
+}
+.timerbox{
+background:linear-gradient(90deg,#ff6b6b,#ff8e8e);
+color:white;
+margin:15px;
+padding:20px;
+border-radius:20px;
+text-align:center;
+}
+#timer{
+font-size:40px;
+font-weight:bold;
+}
+.colors{
+display:flex;
+gap:10px;
+margin:15px;
+}
+.colors button{
+flex:1;
+padding:15px;
+border:none;
+border-radius:12px;
+font-size:20px;
+color:white;
+}
+.green{
+background:#1cc95a;
+}
+.violet{
+background:#b04cff;
+}
+.red{
+background:#ff5f5f;
+}
+.numbers{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:10px;
+padding:15px;
+}
+.ball{
+height:60px;
+border-radius:50%;
+border:none;
+font-size:24px;
+font-weight:bold;
+color:white;
+}
+.g{
+background:#1cc95a;
+}
+.r{
+background:#ff5f5f;
+}
+.bigsmall{
+display:flex;
+margin:15px;
+overflow:hidden;
+border-radius:30px;
+}
+.big{
+flex:1;
+background:#f8b24e;
+padding:15px;
+border:none;
+font-size:25px;
+color:white;
+}
+.small{
+flex:1;
+background:#6da3ff;
+padding:15px;
+border:none;
+font-size:25px;
+color:white;
+}
+.history{
+margin:15px;
+background:white;
+border-radius:15px;
+overflow:hidden;
+}
+.row{
+display:flex;
+justify-content:space-between;
+padding:12px;
+border-bottom:1px solid #eee;
 }
 </style>
-
 </head>
-
 <body>
-
-<h1>95 CLUB</h1>
-
-<div class="card">
-    <h2>Balance</h2>
-    <h1 id="coins">1000 Coins</h1>
+<div class="header">
+95 CLUB
 </div>
-
-<div class="card">
- <button onclick="dailyReward()">Daily Reward</button>
-<br>
-
-
-<div style="font-size:40px;">⬇️</div>
-
-<div id="wheel" style="
-width:200px;
-height:200px;
-border-radius:50%;
-background:conic-gradient(
-red 0deg 60deg,
-yellow 60deg 120deg,
-green 120deg 180deg,
-blue 180deg 240deg,
-orange 240deg 300deg,
-purple 300deg 360deg
-);
-margin:20px auto;
-"></div>
-
-<button onclick="spinWheel()">Spin Wheel</button>
-<br>
-
-<button onclick="logout()">Logout</button>
-
-   
-
-    
+<div class="wallet">
+<div class="balance">₹0.00</div>
+<p>Wallet Balance</p>
+<div class="actions">
+<button class="withdraw">Withdraw</button>
+<button class="deposit">Deposit</button>
+</div>
+</div>
+<div class="tabs">
+<button class="active">30 Sec</button>
+<button>1 Min</button>
+<button>3 Min</button>
+<button>5 Min</button>
+</div>
+<div class="timerbox">
+<h3>Next Round</h3>
+<div id="timer">00:30</div>
+</div>
+<div class="colors">
+<button class="green">Green</button>
+<button class="violet">Violet</button>
+<button class="red">Red</button>
+</div>
+<div class="numbers">
+<button class="ball r">0</button>
+<button class="ball g">1</button>
+<button class="ball r">2</button>
+<button class="ball g">3</button>
+<button class="ball r">4</button>
+<button class="ball g">5</button>
+<button class="ball r">6</button>
+<button class="ball g">7</button>
+<button class="ball r">8</button>
+<button class="ball g">9</button>
+</div>
+<div class="bigsmall">
+<button class="big">BIG</button>
+<button class="small">SMALL</button>
+</div>
+<div class="history">
+<div class="row"><b>Round</b><b>Result</b></div>
+<div class="row"><span>#1001</span><span>7</span></div>
+<div class="row"><span>#1002</span><span>3</span></div>
+<div class="row"><span>#1003</span><span>1</span></div>
 </div>
 <script>
-let coins = 1000;
-
-function dailyReward() {
-    coins += 100;
-    document.getElementById("coins").innerText = coins + " Coins";
-    alert("You received 100 Coins!");
+let seconds = 30;
+setInterval(function(){
+seconds--;
+if(seconds < 0){
+seconds = 30;
 }
-
-function spinWheel() {
-    let rewards = [10, 20, 50, 100, 200, 500];
-    let reward = rewards[Math.floor(Math.random() * rewards.length)];
-
-    let wheel = document.getElementById("wheel");
-
-    if (!wheel) {
-        alert("Wheel not found!");
-        return;
-    }
-
-    let rotation = 1440 + Math.floor(Math.random() * 360);
-
-    wheel.style.transition = "transform 4s ease-out";
-    wheel.style.transform = "rotate(" + rotation + "deg)";
-
-    setTimeout(function () {
-        coins += reward;
-        document.getElementById("coins").innerText =
-            coins + " Coins";
-
-        alert("🎉 You won " + reward + " Coins!");
-    }, 4000);
-}
-
-function logout() {
-    alert("Logged out");
-}
+document.getElementById("timer").innerHTML =
+"00:" + String(seconds).padStart(2,"0");
+},1000);
 </script>
-
-
-    
-
-
-
-
-
-
-
-
 </body>
 </html>
