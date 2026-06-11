@@ -94,23 +94,28 @@ function dailyReward() {
 
 
 function spinWheel() {
+
     let rewards = [10, 20, 50, 100, 200, 500];
+
     let reward = rewards[Math.floor(Math.random() * rewards.length)];
 
     let wheel = document.getElementById("wheel");
 
-    wheel.style.transition = "transform 4s ease-out";
-    wheel.style.transform = "rotate(" + (1440 + Math.random() * 360) + "deg)";
+    let rotation = 1440 + Math.floor(Math.random() * 360);
 
-    setTimeout(() => {
+    wheel.style.transition = "transform 4s ease-out";
+    wheel.style.transform = "rotate(" + rotation + "deg)";
+
+    setTimeout(function () {
+
         coins += reward;
 
-        document.getElementById("coins").innerHTML =
+        document.getElementById("coins").innerText =
             coins + " Coins";
 
         alert("🎉 You won " + reward + " Coins!");
-    }, 4000);
 
+    }, 4000);
 }
     
 
