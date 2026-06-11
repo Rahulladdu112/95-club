@@ -1,26 +1,95 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Register</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>95 CLUB Registration</title>
+
+<style>
+body{
+background:#111;
+font-family:Arial,sans-serif;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+.box{
+background:#222;
+padding:20px;
+border-radius:15px;
+max-width:400px;
+margin:auto;
+}
+
+h1{
+color:red;
+}
+
+input{
+width:90%;
+padding:15px;
+margin:10px 0;
+border:none;
+border-radius:10px;
+font-size:18px;
+}
+
+button{
+width:95%;
+padding:15px;
+margin-top:10px;
+border:none;
+border-radius:10px;
+background:red;
+color:white;
+font-size:18px;
+font-weight:bold;
+}
+</style>
 </head>
+
 <body>
+
+<h1>95 CLUB</h1>
+
+<div class="box">
 <h2>Register</h2>
 
-<input type="text" id="username" placeholder="Username"><br><br>
-<input type="password" id="password" placeholder="Password"><br><br>
+<input type="text" id="phone" placeholder="Phone Number">
 
-<button onclick="register()">Register</button>
+<button onclick="sendOTP()">Send OTP</button>
+
+<input type="text" id="otp" placeholder="Enter OTP">
+
+<input type="password" id="password" placeholder="Create Password">
+
+<button onclick="register()">Create Account</button>
+</div>
 
 <script>
-function register() {
-  const username = document.getElementById("username").value;
-  const password = document.getElementById("password").value;
 
-  localStorage.setItem(username, password);
+let generatedOTP = "";
 
-  alert("Registration Successful!");
-  window.location.href = "Login.html";
+function sendOTP(){
+generatedOTP = "123456";
+alert("Demo OTP: " + generatedOTP);
 }
+
+function register(){
+
+let otp = document.getElementById("otp").value;
+
+if(otp !== generatedOTP){
+alert("Wrong OTP");
+return;
+}
+
+alert("Registration Successful");
+
+window.location.href="Login.html";
+}
+
 </script>
+
 </body>
 </html>
