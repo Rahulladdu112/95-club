@@ -1,12 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Dashboard</title>
+<title>95 CLUB Dashboard</title>
+
+<style>
+body{
+    background:#111;
+    color:white;
+    font-family:Arial;
+    text-align:center;
+    padding:20px;
+}
+
+.card{
+    background:#222;
+    padding:20px;
+    margin:15px;
+    border-radius:10px;
+}
+
+button{
+    width:200px;
+    padding:12px;
+    margin:10px;
+    border:none;
+    border-radius:10px;
+    background:gold;
+    font-size:18px;
+}
+</style>
+
 </head>
+
 <body>
 
-<h1>Welcome to 95 CLUB</h1>
-<p>You are logged in.</p>
+<h1>95 CLUB</h1>
+
+<div class="card">
+    <h2>Balance</h2>
+    <h1 id="coins">1000 Coins</h1>
+</div>
+
+<div class="card">
+    <button onclick="dailyReward()">Daily Reward</button>
+    <br>
+    <button onclick="logout()">Logout</button>
+</div>
+
+<script>
+
+let coins = 1000;
+
+function dailyReward(){
+    coins += 100;
+    document.getElementById("coins").innerHTML =
+    coins + " Coins";
+
+    alert("You received 100 Coins!");
+}
+
+function logout(){
+    window.location.href = "Login.html";
+}
+
+</script>
 
 </body>
 </html>
