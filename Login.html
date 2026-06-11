@@ -2,175 +2,59 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>95 CLUB Login</title>
+<title>95 CLUB</title>
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
 body{
+margin:0;
+font-family:Arial,sans-serif;
 background:#f5f5f5;
 }
 .header{
-background:linear-gradient(90deg,#ff6d6d,#ff9b9b);
-padding:30px 20px;
+background:linear-gradient(90deg,#ff6a6a,#ff9a9a);
 color:white;
-}
-.logo{
+padding:20px;
 text-align:center;
-font-size:38px;
+font-size:32px;
 font-weight:bold;
-margin-bottom:15px;
 }
-.info{
-font-size:16px;
-line-height:24px;
-}
-.tabs{
-display:flex;
+.wallet{
 background:white;
-}
-.tab{
-width:50%;
+margin:15px;
+padding:20px;
+border-radius:15px;
 text-align:center;
-padding:20px;
-font-size:22px;
-font-weight:bold;
-color:#888;
 }
-.active{
-color:#ff6d6d;
-border-bottom:4px solid #ff6d6d;
-}
-.form{
-padding:20px;
-}
-.label{
-font-size:24px;
-margin-top:15px;
-margin-bottom:10px;
-}
-.phoneRow{
-display:flex;
+.games{
+display:grid;
+grid-template-columns:1fr 1fr;
 gap:10px;
+padding:15px;
 }
-.country{
-width:100px;
-padding:16px;
-border:none;
+.game{
+background:white;
+padding:20px;
 border-radius:15px;
-background:white;
-font-size:20px;
-}
-.input{
-flex:1;
-padding:16px;
-border:none;
-border-radius:15px;
-background:white;
-font-size:20px;
-}
-.password{
-width:100%;
-padding:16px;
-border:none;
-border-radius:15px;
-background:white;
-font-size:20px;
-}
-.remember{
-margin-top:20px;
-font-size:18px;
-color:#666;
-}
-.loginBtn{
-width:100%;
-padding:18px;
-border:none;
-border-radius:40px;
-margin-top:25px;
-font-size:28px;
-font-weight:bold;
-background:#d5d5e2;
-color:#666;
-}
-.registerBtn{
-width:100%;
-padding:18px;
-border-radius:40px;
-margin-top:15px;
-font-size:28px;
-font-weight:bold;
-background:white;
-border:2px solid #ff6d6d;
-color:#ff6d6d;
-}
-.bottom{
-display:flex;
-justify-content:space-around;
-margin-top:40px;
 text-align:center;
-font-size:18px;
-}
-.icon{
-font-size:40px;
-margin-bottom:10px;
+font-size:20px;
+font-weight:bold;
 }
 </style>
 </head>
 <body>
 <div class="header">
-<div class="logo">
 95 CLUB
 </div>
-<div class="info">
-Please log in with your phone number or email.<br>
-If you forget your password, contact customer service.
+<div class="wallet">
+<h2>1000 Coins</h2>
+<p>Virtual Balance</p>
 </div>
+<div class="games">
+<div class="game">🎯 Wingo</div>
+<div class="game">✈️ Aviator</div>
+<div class="game">💣 Mines</div>
+<div class="game">🎲 Dice</div>
+<div class="game">🪙 Coin Flip</div>
+<div class="game">🐉 Dragon Tiger</div>
 </div>
-<div class="tabs">
-<div class="tab active">📱 Phone</div>
-<div class="tab">📧 Email</div>
-</div>
-<div class="form">
-<div class="label">Phone Number</div>
-<div class="phoneRow">
-<select class="country">
-<option>+91</option>
-</select>
-<input class="input" type="text" placeholder="Please enter phone number">
-</div>
-<div class="label">Password</div>
-<input class="password" type="password" placeholder="Password">
-<div class="remember">
-<input type="checkbox"> Remember password
-</div>
-<button class="loginBtn" onclick="login()">
-Log In
-</button>
-<button class="registerBtn" onclick="registerPage()">
-Register
-</button>
-<div class="bottom">
-<div>
-<div class="icon">🔒</div>
-Forgot Password
-</div>
-<div>
-<div class="icon">💬</div>
-Customer Service
-</div>
-</div>
-</div>
-<script>
-function login(){
-window.location.href="Dashboard.html";
-}
-function registerPage(){
-window.location.href="Registration.html";
-}
-</script>
 </body>
 </html>
