@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>95 CLUB</title>
+
 <style>
 *{
 margin:0;
@@ -11,34 +11,40 @@ padding:0;
 box-sizing:border-box;
 font-family:Arial,sans-serif;
 }
+
 body{
 background:#f5f5f5;
+padding-bottom:80px;
 }
+
 .header{
-background:linear-gradient(90deg,#ff6b6b,#ff8e8e);
-padding:15px;
-text-align:center;
+background:linear-gradient(90deg,#ff5f6d,#ff8f70);
+padding:20px;
 color:white;
+text-align:center;
 font-size:30px;
 font-weight:bold;
 }
+
 .wallet{
 background:white;
 margin:15px;
 padding:20px;
 border-radius:20px;
-text-align:center;
 box-shadow:0 2px 10px rgba(0,0,0,.1);
 }
+
 .balance{
-font-size:35px;
+font-size:32px;
 font-weight:bold;
 }
+
 .actions{
 display:flex;
 gap:10px;
 margin-top:15px;
 }
+
 .actions button{
 flex:1;
 padding:12px;
@@ -47,178 +53,149 @@ border-radius:25px;
 color:white;
 font-size:18px;
 }
-.withdraw{
-background:#ff5f5f;
-}
+
 .deposit{
-background:#1cc95a;
+background:#00c853;
 }
-.tabs{
-display:flex;
+
+.reward{
+background:#ff6d6d;
+}
+
+.notice{
 margin:15px;
 background:white;
-border-radius:15px;
-overflow:hidden;
-}
-.tabs button{
-flex:1;
 padding:15px;
-border:none;
-background:white;
+border-radius:15px;
+font-weight:bold;
 }
-.active{
-background:#ff6b6b;
-color:white;
-}
-.timerbox{
-background:linear-gradient(90deg,#ff6b6b,#ff8e8e);
-color:white;
+
+.banner{
 margin:15px;
-padding:20px;
+height:140px;
 border-radius:20px;
+background:linear-gradient(45deg,#ff5f6d,#ffc371);
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
+font-size:28px;
+font-weight:bold;
+}
+
+.games{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+padding:15px;
+}
+
+.game{
+background:white;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+.game img{
+width:100%;
+height:120px;
+object-fit:cover;
+}
+
+.game h3{
+padding:12px;
 text-align:center;
 }
-#timer{
-font-size:40px;
-font-weight:bold;
-}
-.colors{
-display:flex;
-gap:10px;
-margin:15px;
-}
-.colors button{
-flex:1;
-padding:15px;
-border:none;
-border-radius:12px;
-font-size:20px;
-color:white;
-}
-.green{
-background:#1cc95a;
-}
-.violet{
-background:#b04cff;
-}
-.red{
-background:#ff5f5f;
-}
-.numbers{
-display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:10px;
-padding:15px;
-}
-.ball{
-height:60px;
-border-radius:50%;
-border:none;
-font-size:24px;
-font-weight:bold;
-color:white;
-}
-.g{
-background:#1cc95a;
-}
-.r{
-background:#ff5f5f;
-}
-.bigsmall{
-display:flex;
-margin:15px;
-overflow:hidden;
-border-radius:30px;
-}
-.big{
-flex:1;
-background:#f8b24e;
-padding:15px;
-border:none;
-font-size:25px;
-color:white;
-}
-.small{
-flex:1;
-background:#6da3ff;
-padding:15px;
-border:none;
-font-size:25px;
-color:white;
-}
-.history{
-margin:15px;
+
+.bottom{
+position:fixed;
+bottom:0;
+left:0;
+right:0;
 background:white;
-border-radius:15px;
-overflow:hidden;
-}
-.row{
 display:flex;
-justify-content:space-between;
+justify-content:space-around;
 padding:12px;
-border-bottom:1px solid #eee;
+box-shadow:0 -2px 10px rgba(0,0,0,.1);
 }
 </style>
 </head>
+
 <body>
+
 <div class="header">
 95 CLUB
 </div>
+
 <div class="wallet">
-<div class="balance">₹0.00</div>
-<p>Wallet Balance</p>
+<div class="balance" id="coins">1000 Coins</div>
+
 <div class="actions">
-<button class="withdraw">Withdraw</button>
 <button class="deposit">Deposit</button>
+<button class="reward" onclick="reward()">Daily Reward</button>
 </div>
 </div>
-<div class="tabs">
-<button class="active">30 Sec</button>
-<button>1 Min</button>
-<button>3 Min</button>
-<button>5 Min</button>
+
+<div class="notice">
+📢 Welcome to 95 CLUB Virtual Coin Games
 </div>
-<div class="timerbox">
-<h3>Next Round</h3>
-<div id="timer">00:30</div>
+
+<div class="banner">
+WELCOME BONUS
 </div>
-<div class="colors">
-<button class="green">Green</button>
-<button class="violet">Violet</button>
-<button class="red">Red</button>
+
+<div class="games">
+
+<div class="game">
+<img src="https://via.placeholder.com/300x120">
+<h3>🎯 Wingo</h3>
 </div>
-<div class="numbers">
-<button class="ball r">0</button>
-<button class="ball g">1</button>
-<button class="ball r">2</button>
-<button class="ball g">3</button>
-<button class="ball r">4</button>
-<button class="ball g">5</button>
-<button class="ball r">6</button>
-<button class="ball g">7</button>
-<button class="ball r">8</button>
-<button class="ball g">9</button>
+
+<div class="game">
+<img src="https://via.placeholder.com/300x120">
+<h3>✈️ Aviator</h3>
 </div>
-<div class="bigsmall">
-<button class="big">BIG</button>
-<button class="small">SMALL</button>
+
+<div class="game">
+<img src="https://via.placeholder.com/300x120">
+<h3>💣 Mines</h3>
 </div>
-<div class="history">
-<div class="row"><b>Round</b><b>Result</b></div>
-<div class="row"><span>#1001</span><span>7</span></div>
-<div class="row"><span>#1002</span><span>3</span></div>
-<div class="row"><span>#1003</span><span>1</span></div>
+
+<div class="game">
+<img src="https://via.placeholder.com/300x120">
+<h3>🎲 Dice</h3>
 </div>
+
+<div class="game">
+<img src="https://via.placeholder.com/300x120">
+<h3>🪙 Coin Flip</h3>
+</div>
+
+<div class="game">
+<img src="https://via.placeholder.com/300x120">
+<h3>🐉 Dragon Tiger</h3>
+</div>
+
+</div>
+
+<div class="bottom">
+<div>🏠 Home</div>
+<div>🎮 Games</div>
+<div>🎁 Rewards</div>
+<div>👤 Account</div>
+</div>
+
 <script>
-let seconds = 30;
-setInterval(function(){
-seconds--;
-if(seconds < 0){
-seconds = 30;
+let coins = 1000;
+
+function reward(){
+coins += 100;
+document.getElementById("coins").innerHTML =
+coins + " Coins";
+alert("You received 100 coins");
 }
-document.getElementById("timer").innerHTML =
-"00:" + String(seconds).padStart(2,"0");
-},1000);
 </script>
+
 </body>
 </html>
