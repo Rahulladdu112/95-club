@@ -45,10 +45,30 @@ button{
  <button onclick="dailyReward()">Daily Reward</button>
 <br>
 
+
+<div style="font-size:40px;">⬇️</div>
+
+<div id="wheel" style="
+width:200px;
+height:200px;
+border-radius:50%;
+background:conic-gradient(
+red 0deg 60deg,
+yellow 60deg 120deg,
+green 120deg 180deg,
+blue 180deg 240deg,
+orange 240deg 300deg,
+purple 300deg 360deg
+);
+margin:20px auto;
+"></div>
+
 <button onclick="spinWheel()">Spin Wheel</button>
 <br>
 
-<button onclick="logout()">Logout</button>   
+<button onclick="logout()">Logout</button>
+
+   
 
     
 </div>
@@ -74,14 +94,23 @@ function dailyReward() {
 
 
 function spinWheel() {
-    let reward = Math.floor(Math.random() * 500) + 1;
+    let rewards = [10, 20, 50, 100, 200, 500];
+    let reward = rewards[Math.floor(Math.random() * rewards.length)];
 
-    coins += reward;
+    let wheel = document.getElementById("wheel");
 
-    document.getElementById("coins").innerHTML =
-    coins + " Coins";
+    wheel.style.transition = "transform 4s ease-out";
+    wheel.style.transform = "rotate(" + (1440 + Math.random() * 360) + "deg)";
 
-    alert("You won " + reward + " Coins!");
+    setTimeout(() => {
+        coins += reward;
+
+        document.getElementById("coins").innerHTML =
+            coins + " Coins";
+
+        alert("🎉 You won " + reward + " Coins!");
+    }, 4000);
+
 }
     
 
