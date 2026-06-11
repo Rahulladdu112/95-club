@@ -2,189 +2,102 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Wingo</title>
+<title>Wingo Game</title>
 <style>
 body{
-margin:0;
-font-family:Arial,sans-serif;
+font-family:Arial;
 background:#f5f5f5;
-}
-.header{
-background:#ff6b6b;
-color:white;
-padding:15px;
+margin:0;
+padding:20px;
 text-align:center;
-font-size:28px;
-font-weight:bold;
 }
-.balance{
+.wallet{
 background:white;
-margin:15px;
-padding:15px;
-border-radius:15px;
-text-align:center;
-font-size:24px;
-font-weight:bold;
-}
-.tabs{
-display:flex;
-margin:15px;
-gap:10px;
-}
-.tab{
-flex:1;
-padding:12px;
-border-radius:12px;
-text-align:center;
-background:white;
-font-weight:bold;
-}
-.active{
-background:#ff6b6b;
-color:white;
-}
-.timer{
-background:white;
-margin:15px;
 padding:20px;
 border-radius:15px;
-text-align:center;
+margin-bottom:20px;
 }
-#countdown{
+.balance{
+font-size:30px;
+font-weight:bold;
+}
+.timer{
+background:#ff6d6d;
+color:white;
+padding:20px;
+border-radius:15px;
 font-size:40px;
-font-weight:bold;
-color:#ff6b6b;
+margin-bottom:20px;
 }
-.colors{
-display:flex;
-gap:10px;
-padding:15px;
-}
-.colors button{
-flex:1;
+.betBtn{
+width:45%;
 padding:15px;
 border:none;
-border-radius:12px;
+border-radius:15px;
+font-size:24px;
 color:white;
-font-size:18px;
-font-weight:bold;
-}
-.green{background:#22c55e;}
-.violet{background:#a855f7;}
-.red{background:#ef4444;}
-.numbers{
-display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:10px;
-padding:15px;
-}
-.numbers button{
-height:60px;
-border:none;
-border-radius:50%;
-font-size:22px;
-font-weight:bold;
-color:white;
-}
-.num-red{
-background:#ef4444;
-}
-.num-green{
-background:#22c55e;
-}
-.bigsmall{
-display:flex;
-padding:15px;
-gap:10px;
-}
-.bigsmall button{
-flex:1;
-padding:15px;
-border:none;
-border-radius:12px;
-font-size:20px;
-font-weight:bold;
-color:white;
+margin:5px;
 }
 .big{
-background:#f59e0b;
+background:#f0ad4e;
 }
 .small{
-background:#3b82f6;
+background:#5bc0de;
 }
-.history{
-background:white;
-margin:15px;
-padding:15px;
-border-radius:15px;
-}
-.row{
-display:flex;
-justify-content:space-between;
-padding:10px 0;
-border-bottom:1px solid #eee;
+.result{
+margin-top:20px;
+font-size:24px;
+font-weight:bold;
 }
 </style>
 </head>
 <body>
-<div class="header">
-WINGO
+<div class="wallet">
+<div class="balance" id="coins">1000 Coins</div>
 </div>
-<div class="balance">
-Coins: <span id="coins">1000</span>
+<div class="timer" id="timer">
+10
 </div>
-<div class="tabs">
-<div class="tab active">30 Sec</div>
-<div class="tab">1 Min</div>
-</div>
-<div class="timer">
-<div>Next Round</div>
-<div id="countdown">30</div>
-</div>
-<div class="colors">
-<button class="green">Green</button>
-<button class="violet">Violet</button>
-<button class="red">Red</button>
-</div>
-<div class="numbers">
-<button class="num-red">0</button>
-<button class="num-green">1</button>
-<button class="num-red">2</button>
-<button class="num-green">3</button>
-<button class="num-red">4</button>
-<button class="num-green">5</button>
-<button class="num-red">6</button>
-<button class="num-green">7</button>
-<button class="num-red">8</button>
-<button class="num-green">9</button>
-</div>
-<div class="bigsmall">
-<button class="big">BIG</button>
-<button class="small">SMALL</button>
-</div>
-<div class="history">
-<h3>History</h3>
-<div class="row">
-<span>Round #1001</span>
-<span>7</span>
-</div>
-<div class="row">
-<span>Round #1000</span>
-<span>2</span>
-</div>
-<div class="row">
-<span>Round #999</span>
-<span>5</span>
-</div>
+<button class="betBtn big" onclick="betBig()">BIG</button>
+<button class="betBtn small" onclick="betSmall()">SMALL</button>
+<div class="result" id="result">
+Place your bet
 </div>
 <script>
-let time = 30;
+let coins = 1000;
+let selectedBet = "";
+function betBig(){
+selectedBet = "BIG";
+document.getElementById("result").innerHTML =
+"Bet placed on BIG";
+}
+function betSmall(){
+selectedBet = "SMALL";
+document.getElementById("result").innerHTML =
+"Bet placed on SMALL";
+}
+let time = 10;
 setInterval(function(){
 time--;
-if(time < 0){
-time = 30;
+document.getElementById("timer").innerHTML = time;
+if(time<=0){
+let number = Math.floor(Math.random()*10);
+let outcome =
+(number>=5) ? "BIG" : "SMALL";
+if(selectedBet!=""){
+if(selectedBet==outcome){
+coins += 100;
+alert("You Won! Number: "+number);
+}else{
+coins -= 100;
+alert("You Lost! Number: "+number);
 }
-document.getElementById("countdown").innerHTML = time;
+document.getElementById("coins").innerHTML =
+coins + " Coins";
+selectedBet = "";
+}
+time = 10;
+}
 },1000);
 </script>
 </body>
